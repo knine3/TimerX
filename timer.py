@@ -37,8 +37,7 @@ while(True):
         time.sleep(0.01)
         seconds += 0.01
         
-#        if minutes == overflow:
-        if seconds > 5:
+        if minutes == overflow:
             break
     
     except KeyboardInterrupt:
