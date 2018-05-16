@@ -5,9 +5,13 @@ minutes = int(0)
 hours = int(0)
 TR = 'n'
 
-print()
-print('  --------------------------------------------------------------------')
-print()
+def div():
+    print()
+    print('  --------------------------------------------------------------------')
+    print()
+
+div()
+    
 while(True):
     try:
         overflow = int(input("\t\tSet Work Session Duration (minutes): "))
@@ -44,15 +48,11 @@ while(True):
         decision = input("\t\t     FORFIET WORK SESSION(y/n): ")
         if decision.lower() == 'y':
             print ("\t\t    LAST WORK SESSION: {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds))
-            print()
-            print('  --------------------------------------------------------------------')
-            print()
+            div()
             exit()
         else:
             continue
 
 print ("\t\t       Work Session Completed!")
 
-print()
-print('  --------------------------------------------------------------------')
-print()  
+div()
