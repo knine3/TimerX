@@ -9,6 +9,10 @@ TR = 'n'
 def div():
     print('\n'+'  '+ 68*'-'+'\n')  
 
+def formatter(message, delim='\n'):
+    print ('{:^72}'.format(message), end = delim)
+
+
 div()
     
 while(True):
@@ -16,19 +20,20 @@ while(True):
         minutes = int(input("\t\tSet Work Session Duration (minutes): "))
         break
     except ValueError:
-        print("Invalid Value, try entering an integer.")
+        formatter("Invalid Value, try entering an integer.")
 
 while (TR.lower()!="y"):
     TR = input("\t\t READY TO GET SOME WORK DONE (y/n): ")
     if (TR.lower() == 'n'):
         exit()
 
-print ('\n\t\t\t    Timer started')
+print()
+formatter('Timer started')
 
 while(True):
     
     try:
-        print ("\t\t\tWorking : {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds), end = "\r")
+        formatter("Working : {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds), '\r')
         time.sleep(0.01)
         seconds -= 0.01
         
@@ -42,11 +47,11 @@ while(True):
     except KeyboardInterrupt:
         decision = input("\t\t     FORFIET WORK SESSION(y/n): ")
         if decision.lower() == 'y':
-            print ("\t\t    LAST WORK SESSION: {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds))
+            formatter('Work Session Forfeited!')
             div()
             exit()
         else:
             continue
 
-print ("\t\t       Work Session Completed!")
+formatter ("Work Session Completed!")
 div()
