@@ -12,18 +12,21 @@ def div():
 def formatter(message, delim='\n'):
     print ('{:^72}'.format(message), end = delim)
 
+def deform (message):
+    spaces = int((72-len(message))/2) 
+    return (spaces*' ' + message)
 
 div()
     
 while(True):
     try:
-        minutes = int(input("\t\tSet Work Session Duration (minutes): "))
+        minutes = int(input(deform("Set Work Session Duration (minutes): ")))
         break
     except ValueError:
         formatter("Invalid Value, try entering an integer.")
 
 while (TR.lower()!="y"):
-    TR = input("\t\t READY TO GET SOME WORK DONE (y/n): ")
+    TR = input(deform("READY TO GET SOME WORK DONE (y/n): "))
     if (TR.lower() == 'n'):
         exit()
 
@@ -45,7 +48,7 @@ while(True):
             break
     
     except KeyboardInterrupt:
-        decision = input("\t\t     FORFIET WORK SESSION(y/n): ")
+        decision = input(deform("FORFIET WORK SESSION(y/n): "))
         if decision.lower() == 'y':
             formatter('Work Session Forfeited!')
             div()
