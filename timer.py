@@ -16,30 +16,30 @@ while(True):
         print("Invalid Value, try entering an integer.")
 
 while (TR.lower()!="y"):
-    TR = input("\t\tREADY TO GET SOME WORK DONE (y/n): ")
+    TR = input("\t\t READY TO GET SOME WORK DONE (y/n): ")
     if (TR.lower() == 'n'):
         exit()
 print ()
-print ('\t\t\t   Timer started')
+print ('\t\t\t    Timer started')
 print ("\t\t\tDuration: {:02d}:{:02d}:{:05.2f}".format(hours, overflow, seconds))
 
 while(True):
     try:
-        while TR.lower() == 'y':
-            if seconds > 59:
-                seconds = 0
-                minutes += 1
-            
-            if minutes > 59:
-                mintues = 0
-                hours += 1
-            
-            print ("\t\t\tWorking : {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds), end = "\r")
-            time.sleep(0.01)
-            seconds += 0.01
-            
-            if minutes == overflow:
-                break
+        if seconds > 59:
+            seconds = 0
+            minutes += 1
+        
+        if minutes > 59:
+            mintues = 0
+            hours += 1
+        
+        print ("\t\t\tWorking : {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds), end = "\r")
+        time.sleep(0.01)
+        seconds += 0.01
+        
+#        if minutes == overflow:
+        if seconds > 5:
+            break
     
     except KeyboardInterrupt:
         decision = input("\t\t     FORFIET WORK SESSION(y/n): ")
@@ -52,4 +52,8 @@ while(True):
         else:
             continue
 
-print ("\nWork Session Completed")    
+print ("\t\t       Work Session Completed!")
+
+print()
+print('  --------------------------------------------------------------------')
+print()  
