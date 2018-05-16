@@ -5,21 +5,23 @@ minutes = int(0)
 hours = int(0)
 TR = 'n'
 
+print()
+print('  --------------------------------------------------------------------')
+print()
 while(True):
     try:
-        overflow = int(input("Set Work Session Duration (minutes): "))
+        overflow = int(input("\t\tSet Work Session Duration (minutes): "))
         break
     except ValueError:
         print("Invalid Value, try entering an integer.")
 
 while (TR.lower()!="y"):
-    print ("\nEnter 'y' for Yes, 'n' for No or 'e' to exit.")
-    TR = input("READY TO GET SOME WORK DONE (y/n/e): ")
-    if (TR.lower() == 'e'):
+    TR = input("\t\tREADY TO GET SOME WORK DONE (y/n): ")
+    if (TR.lower() == 'n'):
         exit()
-
-print ('Timer started', end='\t\t')
-print ("\t\tWork Session duration: {:02d}:{:02d}:{:05.2f}".format(hours, overflow, seconds), end = "\r" )
+print ()
+print ('\t\t\t   Timer started')
+print ("\t\t\tDuration: {:02d}:{:02d}:{:05.2f}".format(hours, overflow, seconds))
 
 while(True):
     try:
@@ -32,7 +34,7 @@ while(True):
                 mintues = 0
                 hours += 1
             
-            print ("\t\tWorking: {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds), end = "\r")
+            print ("\t\t\tWorking : {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds), end = "\r")
             time.sleep(0.01)
             seconds += 0.01
             
@@ -40,9 +42,12 @@ while(True):
                 break
     
     except KeyboardInterrupt:
-        decision = input("\nFORFIET WORK SESSION(y/n): ")
+        decision = input("\t\t     FORFIET WORK SESSION(y/n): ")
         if decision.lower() == 'y':
-            print ("LAST WORK SESSION: {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds))
+            print ("\t\t    LAST WORK SESSION: {:02d}:{:02d}:{:05.2f}".format(hours, minutes, seconds))
+            print()
+            print('  --------------------------------------------------------------------')
+            print()
             exit()
         else:
             continue
