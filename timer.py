@@ -7,43 +7,35 @@ class timer:
 		self.hours = int(0)
 	
 	def timeUP(self):
-		if (self.hours == 0 and self.minutes == 0 and self.seconds == 0):
+		if (self.hours == 0 and self.minutes == 0 and round(self.seconds, 2) == 0.00):
 			return True
 		else:
 			return False
 
-	def decrement(self, dec = 0.01):
+	def decrement(self, dec = 0.01): #decrement cannot take any arguments. Because it is not available for user.
 		if self.timeUP():
 			raise StopIteration('Seconds < 0')
 
-		self.seconds -= dec
-		
-		if self.seconds < 0:
-			self.seconds = 60 - dec
+		if round(self.seconds, 2) < 0.00:
+			self.seconds = 60
 			self.minutes -= 1
-			
-		
 
-	#Capital 'S' in "Start()" means user function.
-	def Start():
-		pass
+		self.seconds -= 0.01
+	
+	def Start(self, console = False): #Capital 'S' means user function.
+		if self.timeUP():
+			pass
+		while (not self.timeUP()):
+			print(self, self.timeUP())
+			time.sleep(0.01)
+			self.decrement(0.01)
 
+	
 	def __str__(self):
 		return "{:02d}:{:02d}:{:05.2f}".format(self.hours, self.minutes, self.seconds)
- 
 
-#testBench
-ins = timer(1, 0)
-
-for i in range(30):
-	print(ins)
-	ins.decrement(1)	
-
-while(not ins.timeUP()):
-	print(ins)
-	ins.decrement(1)
-
-
+ins = timer(0, 0.10)
+ins.Start()
 
 print(ins)
 
