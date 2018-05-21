@@ -12,32 +12,31 @@ class timer:
 		else:
 			return False
 
-	def decrement(self, dec = 0.01): #decrement cannot take any arguments. Because it is not available for user.
+	def __decrement(self): #decrement cannot take any arguments. Because it is not available for user.
 		if self.timeUP():
 			raise StopIteration('Seconds < 0')
 
-		if round(self.seconds, 2) < 0.00:
+		if self.seconds < 0.00:
 			self.seconds = 60
 			self.minutes -= 1
-
+			
+		time.sleep(0.01)
 		self.seconds -= 0.01
 	
 	def Start(self, console = False): #Capital 'S' means user function.
 		if self.timeUP():
 			pass
 		while (not self.timeUP()):
-			print(self, self.timeUP())
-			time.sleep(0.01)
-			self.decrement(0.01)
+			print(self, self.timeUP(), end = "\r")
+			self.__decrement()
 
+		print(self, "Time's up")
 	
 	def __str__(self):
 		return "{:02d}:{:02d}:{:05.2f}".format(self.hours, self.minutes, self.seconds)
 
-ins = timer(0, 0.10)
+ins = timer(0, 10)
 ins.Start()
-
-print(ins)
 
 
 # #divider line.
