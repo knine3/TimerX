@@ -36,15 +36,3 @@ class timer:
 	
 	def __str__(self):
 		return "{:02d}:{:02d}:{:05.2f}".format(self.hours, self.minutes, self.seconds)
-
-#main:
-ins = timer(0, 10)
-print("Timeqr: ", ins)
-go = input("Start (y/n): ")
-if go.lower() == 'y':
-	try:
-		ins.Start()
-	except KeyboardInterrupt:
-		print("But why at", ins, "?")
-else:
-	print("Good luck!")
