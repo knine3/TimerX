@@ -1,7 +1,7 @@
 import timer as ti
 
 ins = ti.timer(0, 10)
-print("Timeqr: ", ins)
+print("Timer: ", ins)
 go = input("Start (y/n): ")
 if go.lower() == 'y':
 	try:

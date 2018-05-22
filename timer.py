@@ -1,5 +1,4 @@
 import time
-
 class timer:
 	def __init__(self, minutes = int(0), seconds = float(0)):
 		self.seconds = float(seconds)
