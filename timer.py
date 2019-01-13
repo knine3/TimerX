@@ -34,7 +34,7 @@ class timer:
             print("Working: ", self, end="\r")
             self.__decrement()
 
-        print(self, "Time's up")
+        print(self, "Time's up \a")
 
     def __str__(self):
         return "{:02d}:{:02d}:{:05.2f}".format(self.hours, self.minutes, self.seconds)
